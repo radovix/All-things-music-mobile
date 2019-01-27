@@ -1,56 +1,66 @@
 import React from 'react';
-import { StyleSheet, View, Button, Text } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
-class HomeScreen extends React.Component {
+import ArtistsListScreen from './screens/Artists/ArtistsListScreen';
+import ArtistDetailsScreen from './screens/Artists/ArtistDetailsScreen';
+import AlbumsListScreen from './screens/Albums/AlbumsListScreen';
+import AlbumDetailsScreen from './screens/Albums/AlbumDetailsScreen';
+import SongsListScreen from './screens/Songs/SongsListScreen';
+
+/**
+ * Class repersents the highest order component - App component.
+ * It wraps and returns the all navigators.
+ *
+ * @class App
+ * @extends {React.Component}
+ */
+class App extends React.Component {
+  /**
+   * Renders the app.
+   *
+   * @returns app elements
+   * @memberof App
+   */
   render() {
-    return (
-      <View styles={{ flex: 1, alignItems: 'center', justifyContent: 'cente '}}>
-        <Text>Home screen</Text>
-        <Button 
-          title="Go to Details"
-          onPress={() => this.props.navigation.navigate('Details')}
-        />
-      </View>
+    const ArtistsStack = createStackNavigator({
+      'ArtistsList': ArtistsListScreen,
+      'ArtistDetails': ArtistDetailsScreen
+    });
+
+    const AlbumsStack = createStackNavigator({
+      'AlbumsList': AlbumsListScreen,
+      'AlbumDetails': AlbumDetailsScreen
+    });
+
+    const SongsStack = createStackNavigator({
+      'SongsList': SongsListScreen,
+      'SongAuthorDetails': ArtistDetailsScreen
+    })
+
+    const AppContainer = createAppContainer(
+      createBottomTabNavigator({
+        'ArtistsStack': ArtistsStack,
+        'AlbumsStack': AlbumsStack,
+        'SongsStack': SongsStack
+      })
     );
-  }
-}
 
-class DetailsScreen extends React.Component {
-  render() {
-    return (
-      <View styles={{ flex: 1, alignItems: 'center', justifyContent: 'cente '}}>
-        <Text>Details screen</Text>
-      </View>
-    );
-  }
-}
-
-const RootStack = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Details: DetailsScreen
-  },
-  {
-    initialRouteName: 'Home'
-  }
-);
-
-const AppContainer = createAppContainer(RootStack);
-
-export default class App extends React.Component {
-  render() {
     return (
       <AppContainer />
     );
   }
 }
 
-const styles = StyleSheet.create({
+/**
+ * App's styles object.
+ */
+/*const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-});
+  }
+});*/
+
+export default App;
