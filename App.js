@@ -1,12 +1,47 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Button, Text } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View styles={{ flex: 1, alignItems: 'center', justifyContent: 'cente '}}>
+        <Text>Home screen</Text>
+        <Button 
+          title="Go to Details"
+          onPress={() => this.props.navigation.navigate('Details')}
+        />
+      </View>
+    );
+  }
+}
+
+class DetailsScreen extends React.Component {
+  render() {
+    return (
+      <View styles={{ flex: 1, alignItems: 'center', justifyContent: 'cente '}}>
+        <Text>Details screen</Text>
+      </View>
+    );
+  }
+}
+
+const RootStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Details: DetailsScreen
+  },
+  {
+    initialRouteName: 'Home'
+  }
+);
+
+const AppContainer = createAppContainer(RootStack);
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <AppContainer />
     );
   }
 }
