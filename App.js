@@ -1,5 +1,9 @@
 import React from 'react';
+import { Provider } from 'mobx-react';
+import { StatusBar } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
+
+import ScreenModelsFactory from './screen_models/ScreenModelsFactory';
 
 import ArtistsListScreen from './screens/Artists/ArtistsListScreen';
 import ArtistDetailsScreen from './screens/Artists/ArtistDetailsScreen';
@@ -15,6 +19,16 @@ import SongsListScreen from './screens/Songs/SongsListScreen';
  * @extends {React.Component}
  */
 class App extends React.Component {
+  /**
+   * Called immediately after a component is mounted. 
+   * Setting state here will trigger re-rendering.
+   *
+   * @memberof App
+   */
+  componentDidMount() {
+    StatusBar.setBackgroundColor('white');
+  }
+
   /**
    * Renders the app.
    *
@@ -45,22 +59,14 @@ class App extends React.Component {
       })
     );
 
+    const screenModels = ScreenModelsFactory.getScreenModels();
+
     return (
-      <AppContainer />
+      <Provider screenModels={screenModels}>
+        <AppContainer />
+      </Provider>
     );
   }
 }
-
-/**
- * App's styles object.
- */
-/*const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-});*/
 
 export default App;

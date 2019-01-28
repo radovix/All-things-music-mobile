@@ -1,4 +1,5 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 import { StyleSheet, View, Text } from 'react-native';
 
 /**
@@ -7,7 +8,26 @@ import { StyleSheet, View, Text } from 'react-native';
  * @class AlbumDetailsScreen
  * @extends {React.Component}
  */
+@inject('screenModels')
+@observer
 class AlbumDetailsScreen extends React.Component {
+  /**
+   * Creates an instance of AlbumDetailsScreen.
+   *
+   * @param {Object} props Props
+   * @memberof AlbumDetailsScreen
+   */
+  constructor(props) {
+    super();
+
+    this.albumDetailsScreenModel = props.screenModels.albumDetailsScreenModel;
+  }
+
+  /**
+   * Album details screen model.
+   */
+  albumDetailsScreenModel;
+
   /**
    * Renders the screen.
    *
