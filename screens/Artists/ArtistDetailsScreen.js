@@ -1,4 +1,5 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 import { StyleSheet, View, Text } from 'react-native';
 
 /**
@@ -7,7 +8,26 @@ import { StyleSheet, View, Text } from 'react-native';
  * @class ArtistDetailsScreen
  * @extends {React.Component}
  */
+@inject('screenModels')
+@observer
 class ArtistDetailsScreen extends React.Component {
+  /**
+   * Creates an instance of ArtistDetailsScreen.
+   *
+   * @param {Object} props Props
+   * @memberof ArtistDetailsScreen
+   */
+  constructor(props) {
+    super();
+
+    this.artistDetailsScreenModel = props.screenModels.artistDetailsScreenModel;
+  }
+
+  /**
+   * Artist details screen model.
+   */
+  artistDetailsScreenModel;
+
   /**
    * Renders the screen.
    *

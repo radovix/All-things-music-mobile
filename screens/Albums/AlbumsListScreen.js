@@ -1,4 +1,5 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 
 /**
@@ -7,6 +8,8 @@ import { StyleSheet, View, Text, Button } from 'react-native';
  * @class AlbumsListScreen
  * @extends {React.Component}
  */
+@inject('screenModels')
+@observer
 class AlbumsListScreen extends React.Component {
   /**
    * Header configuration.
@@ -18,6 +21,23 @@ class AlbumsListScreen extends React.Component {
     header: null
   }
   
+  /**
+   * Creates an instance of AlbumsListScreen.
+   *
+   * @param {Object} props Props
+   * @memberof AlbumsListScreen
+   */
+  constructor(props) {
+    super();
+
+    this.albumsListScreenModel = props.screenModels.albumsListScreenModel;
+  }
+
+  /**
+   * Albums list screen model.
+   */
+  albumsListScreenModel;
+
   /**
    * Renders the screen.
    *

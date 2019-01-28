@@ -1,4 +1,5 @@
 import React from 'react';
+import { inject, observer } from 'mobx-react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 
 /**
@@ -7,6 +8,8 @@ import { StyleSheet, View, Text, Button } from 'react-native';
  * @class SongsListScreen
  * @extends {React.Component}
  */
+@inject('screenModels')
+@observer
 class SongsListScreen extends React.Component {
   /**
    * Header configuration.
@@ -17,6 +20,23 @@ class SongsListScreen extends React.Component {
   static navigationOptions = {
     header: null
   }
+
+  /**
+   * Creates an instance of SongsListScreen.
+   *
+   * @param {Object} props Props
+   * @memberof SongsListScreen
+   */
+  constructor(props) {
+    super();
+
+    this.songsListScreenModel = props.screenModels.songsListScreenModel;
+  }
+
+  /**
+   * Songs list screen model.
+   */
+  songsListScreenModel;
 
   /**
    * Renders the component.
