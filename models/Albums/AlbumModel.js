@@ -41,7 +41,7 @@ class AlbumModel {
   grade;
 
   /** 
-   * Album's comments made by users.  
+   * Album's reviews made by users.  
    */
   userReviews;
 
@@ -60,7 +60,7 @@ class AlbumModel {
    * @param {string} [releaseDate=''] Album's release date
    * @param {Array<number>} [genres=[]] Music genres of that describe album
    * @param {number} [grade=1] Album's grade on 1 to 5 scale
-   * @param {Array<String>} [userReviews=[]] Album's comments made by users
+   * @param {Array<UserReview>} [userReviews=[]] Album's reviews made by users
    * @param {Array<number>} [songsList=[]] Album's songs lists
    * @memberof AlbumModel
    */

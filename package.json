@@ -7,7 +7,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.1",
-    "mobx": "^5.9.0",
+    "es6-symbol": "^3.1.1",
+    "mobx": "4.9.1",
     "mobx-react": "^5.4.3",
     "react": "16.6.0",
     "react-native": "0.57.5",
