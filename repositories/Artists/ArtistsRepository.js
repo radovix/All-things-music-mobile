@@ -1,5 +1,3 @@
-import ArtistsListMockData from '../../mocks/Artists/ArtistsListMockData';
-
 /**
  * Class represents the artists repository. It is used 
  * for fetching the artists related data from server. 
@@ -10,13 +8,23 @@ class ArtistsRepository {
   /**
    * Gets the artists list from server.
    *
+   * @param {Object} payload Payload data
    * @returns artists list
    * @memberof ArtistsRepository
    */
-  getArtistsList() {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(this.ordersMapper.mapDtoToOrders(MockOrdersData.orders)), 2500);
-    });
+  getArtistsList(payload) {
+
+  }
+
+  /**
+   * Gets the artist's details from server.
+   *
+   * @param {Object} payload Payload data
+   * @returns artist's details
+   * @memberof ArtistsRepository
+   */
+  getArtistDetail(payload) {
+
   }
 }
 
