@@ -41,7 +41,6 @@ class FakeAlbumsRepository {
     const songs = SongsListMockData.filter(s => album.songs.includes(s.id));
     const userReviews = UserReviewsListMockData.filter(ur => ur.albumId === payload.id);
 
-    console.log(UserReviewsListMockData);
     album.artist = artist || [];
     album.songs = songs;
     album.userReviews = userReviews;

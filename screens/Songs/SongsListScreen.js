@@ -1,6 +1,10 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
+
+import LoadingIndicator from '../../components/Loading/LoadingIndicator';
+import EmptyScreenPlaceholder from '../../components/Placeholders/EmptyScreenPlaceholder';
+import SongsListItem from '../../components/FlatListItems/SongsListItem';
 
 /**
  * Class represents the songs list screen.
@@ -34,6 +38,16 @@ class SongsListScreen extends React.Component {
   }
 
   /**
+   * Called immediately after a component is mounted. 
+   * Starts the data loading.
+   *
+   * @memberof SongsListScreen
+   */
+  componentDidMount() {
+    this.songsListScreenModel.loadSongsList();
+  }
+
+  /**
    * Songs list screen model.
    */
   songsListScreenModel;
@@ -45,16 +59,32 @@ class SongsListScreen extends React.Component {
    * @memberof SongsListScreen
    */
   render() {
+    const {
+      isLoading,
+      songsList 
+    } = this.songsListScreenModel;
+
+    if (isLoading) {
+      return (
+        <LoadingIndicator />
+      )
+    }
+
     return (
-      <View style={styles.container}>
-        <Text>Songs list screen</Text>
-        <Button
-          title='Artist details'
-          style={styles.button}
-          onPress={() => this.props.navigation.navigate('ArtistDetails')}
-        />
-      </View>
-    )
+      <FlatList 
+        style={styles.container}
+        contentContainerStyle={styles.contentContainerStyle}
+        data={Array.from(songsList)}
+        initialNumToRender={15}
+        renderItem={song => (
+          <SongsListItem 
+            item={song} 
+            onPress={() => {}} />
+        )}
+        keyExtractor={song => song.id.toString()}
+        ListEmptyComponent={EmptyScreenPlaceholder} 
+      />
+    );
   }
 }
 
@@ -63,10 +93,10 @@ class SongsListScreen extends React.Component {
  */
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#eeeeee'
+  },
+  contentContainerStyle: {
+    flexGrow: 1
   }
 });
 

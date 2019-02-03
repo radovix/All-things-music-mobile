@@ -68,7 +68,7 @@ class ArtistDetailsScreen extends React.Component {
     const { navigation } = this.props;  
     const { item } = event;
 
-    navigation.navigate('AlbumDetails', {
+    navigation.navigate('ArtistsAlbumDetails', {
       id: item.id,
       title: item.name
     })
@@ -127,7 +127,7 @@ class ArtistDetailsScreen extends React.Component {
                 onPress={() => this.onAlbumsItemPress(album)} />              
             )}
             keyExtractor={album => album.id.toString()}
-            />
+          />
         </View>
       </View>
     )

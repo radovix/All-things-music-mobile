@@ -6,8 +6,10 @@ import SongsListScreenModel from './Songs/SongsListScreenModel';
 
 // import ArtistsRepository from '../repositories/Artists/ArtistsRepository';
 // import AlbumsRepository from '../repositories/Albums/AlbumsRepository;
+// import SongsRepository from '../repositories/Songs/SongsRepository;
 import FakeArtistsRepository from '../repositories/Artists/FakeArtistsRepository';
 import FakeAlbumsRepository from '../repositories/Albums/FakeAlbumsRepository';
+import FakeSongsRepository from '../repositories/Songs/FakeSongsRepository';
 
 /**
  * Class represents the screen models factory.
@@ -32,13 +34,14 @@ class ScreenModelsFactory {
   static _initScreenModels() {
     const artistsRepository = new FakeArtistsRepository();
     const albumsRepository = new FakeAlbumsRepository();
+    const songsRepository = new FakeSongsRepository();
 
     this._screenModels = {
       artistsListScreenModel: new ArtistsListScreenModel(artistsRepository),
       artistDetailsScreenModel: new ArtistDetailsScreenModel(artistsRepository),
       albumsListScreenModel: new AlbumsListScreenModel(albumsRepository),
       albumDetailsScreenModel: new AlbumDetailsScreenModel(albumsRepository),
-      songsListScreenModel: new SongsListScreenModel()
+      songsListScreenModel: new SongsListScreenModel(songsRepository)
     }
   }
 
