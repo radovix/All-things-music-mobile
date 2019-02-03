@@ -1,4 +1,4 @@
-import { action, observable } from 'mobx';
+import { observable } from 'mobx';
 
 /**
  * Class represents the artists list screen model.
@@ -43,7 +43,7 @@ class ArtistsListScreenModel {
 
     try {
       const fetchedArtistsList = await this.artistsRepository.getArtistsList();
-            
+
       this.artistsList.clear();
       this.artistsList.push(...fetchedArtistsList);
     } catch (e) {

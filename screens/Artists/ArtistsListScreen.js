@@ -53,7 +53,7 @@ class ArtistsListScreen extends React.Component {
   artistsListScreenModel;
 
   /**
-   * Handles the on press event for one item list.
+   * Handles the on press event for one list item.
    *
    * @param {object} event Event object containing pressed item
    * @memberof ArtistsListScreen

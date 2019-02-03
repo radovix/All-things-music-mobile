@@ -23,7 +23,7 @@ class ArtistsRepository {
    * @returns artist's details
    * @memberof ArtistsRepository
    */
-  getArtistDetail(payload) {
+  getArtistDetails(payload) {
 
   }
 }

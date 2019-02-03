@@ -8,7 +8,7 @@ const artistsList = [
     summary: 'Taylor Alison Swift je američka country-pop kantautorica i glumica. The New York Times opisao je Swift kao jednu od najboljih pop skladatelja, koja je više u kontaktu sa svojim unutrašnjim životim nego većina odraslih.',
     genres: ['pop', 'country'],
     image: 'http://koji.kur.ac/JCcjvg',
-    albums: []
+    albums: [0, 1, 2, 3, 4]
   },
   {
     id: 1,

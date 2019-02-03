@@ -28,7 +28,7 @@ class FakeArtistsRepository {
    * @returns artist's details
    * @memberof FakeArtistsRepository
    */
-  getArtistDetail(payload) {
+  getArtistDetails(payload) {
     const artist = ArtistsListMockData.filter(a => a.id === payload.id)[0];
     const albums = AlbumsListMockData.filter(a => artist.albums.includes(a.id));
     artist.albums = albums;
