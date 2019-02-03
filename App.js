@@ -22,16 +22,6 @@ import colors from './assets/colors';
  */
 class App extends React.Component {
   /**
-   * Called immediately after a component is mounted. 
-   * Setting state here will trigger re-rendering.
-   *
-   * @memberof App
-   */
-  componentDidMount() {
-
-  }
-
-  /**
    * Renders the app.
    *
    * @returns app elements
@@ -40,7 +30,8 @@ class App extends React.Component {
   render() {
     const ArtistsStack = createStackNavigator({
       'ArtistsList': ArtistsListScreen,
-      'ArtistDetails': ArtistDetailsScreen
+      'ArtistDetails': ArtistDetailsScreen,
+      'ArtistsAlbumDetails': AlbumDetailsScreen
     });
 
     const AlbumsStack = createStackNavigator({
@@ -49,8 +40,7 @@ class App extends React.Component {
     });
 
     const SongsStack = createStackNavigator({
-      'SongsList': SongsListScreen,
-      'SongAuthorDetails': ArtistDetailsScreen
+      'SongsList': SongsListScreen
     })
 
     const AppContainer = createAppContainer(
@@ -79,7 +69,6 @@ class App extends React.Component {
           }
         }, 
         { 
-          initialRouteName: 'AlbumsStack',
           tabBarOptions: { 
             activeTintColor: colors.activeTabTintColor, 
             inactiveTintColor : colors.inactiveTabTintColor, 

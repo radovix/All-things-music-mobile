@@ -14,7 +14,7 @@ class AlbumsListScreenModel {
   albumsRepository;
 
   /**
-   * is loading data flag.
+   * Is loading data flag.
    */
   @observable isLoading = false;
 

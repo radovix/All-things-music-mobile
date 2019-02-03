@@ -11,6 +11,11 @@ class UserReviewModel {
   id;
 
   /**
+   * Album's ID.
+   */
+  albumId;
+
+  /**
    * User's ID.
    */
   userId;
@@ -21,11 +26,6 @@ class UserReviewModel {
   userName;
 
   /**
-   * Album's ID.
-   */
-  albumId;
-
-  /**
    * Review's content.
    */
   content;
@@ -34,17 +34,17 @@ class UserReviewModel {
    * Creates an instance of UserReviewModel.
    *
    * @param {number} id Review's ID
-   * @param {number} userId User's ID
-   * @param {string} userName User's name
    * @param {number} albumId Album's ID
-   * @param {string} content Review's content
+   * @param {number} userId User's ID
+   * @param {string} [userName='-'] User's name
+   * @param {string} [content='-'] Review's content
    * @memberof UserReviewModel
    */
-  constructor(id, userId, userName, albumId, content) {
+  constructor(id, albumId, userId, userName = '-', content = '-') {
     this.id = id;
+    this.albumId = albumId;
     this.userId = userId;
     this.userName = userName;
-    this.albumId = albumId;
     this.content = content;
   }
 }

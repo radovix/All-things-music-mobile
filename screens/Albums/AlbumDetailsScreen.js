@@ -83,8 +83,6 @@ class AlbumDetailsScreen extends React.Component {
   renderComments() {
     const { albumDetails } = this.albumDetailsScreenModel;
 
-    console.log(albumDetails.userReviews);
-
     return albumDetails.userReviews.map(userReview => (
       <AlbumsCommentsListItem key={userReview.id} item={userReview} />
     ));

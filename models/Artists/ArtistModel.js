@@ -39,8 +39,8 @@ class ArtistModel {
    * Creates an instance of ArtistModel.
    * 
    * @param {number} id Artist's ID
-   * @param {string} [name=''] Artists' name
-   * @param {string} [summary=''] Artist's description/short biography
+   * @param {string} [name='-'] Artists' name
+   * @param {string} [summary='-'] Artist's description/short biography
    * @param {Array<string>} [genres=[]] Music genres of artist's songs
    * @param {string} [image=null] Artist's image
    * @param {Array<sumber>} [albums=[]] Artist's albums
