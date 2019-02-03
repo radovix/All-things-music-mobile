@@ -72,7 +72,7 @@ class AlbumModel {
    * @param {Array<number>} [songs=[]] Album's songs lists
    * @memberof AlbumModel
    */
-  constructor(id, artistId, artist = new ArtistModel(0), name = '-', albumCover = null, releaseDate = '-', genres = [], grade = 1, userReviews = [], songs = []) {
+  constructor(id, artistId, artist = new ArtistModel(0), name = '-', albumCover = null, releaseDate = null, genres = [], grade = 1, userReviews = [], songs = []) {
     this.id = id;
     this.artistsId = artistId;
     this.artist = artist;

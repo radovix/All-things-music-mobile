@@ -16,6 +16,11 @@ class UserReviewModel {
   userId;
 
   /**
+   * User's name.
+   */
+  userName;
+
+  /**
    * Album's ID.
    */
   albumId;
@@ -30,13 +35,15 @@ class UserReviewModel {
    *
    * @param {number} id Review's ID
    * @param {number} userId User's ID
+   * @param {string} userName User's name
    * @param {number} albumId Album's ID
    * @param {string} content Review's content
    * @memberof UserReviewModel
    */
-  constructor(id, userId, albumId, content) {
+  constructor(id, userId, userName, albumId, content) {
     this.id = id;
     this.userId = userId;
+    this.userName = userName;
     this.albumId = albumId;
     this.content = content;
   }

@@ -11,7 +11,7 @@ const albumsList = [
     genres: ['pop'],
     grade: 4.7,
     userReviews: [],
-    songsList: [0, 1, 2, 3, 4, 5]
+    songs: [0, 1, 2, 3, 4, 5]
   },
   {
     id: 1,
@@ -22,7 +22,7 @@ const albumsList = [
     genres: ['pop'],
     grade: 5.0,
     userReviews: [],
-    songsList: [6, 7, 8]
+    songs: [6, 7, 8]
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const albumsList = [
     genres: ['pop', 'country', 'rock'],
     grade: 3.8,
     userReviews: [],
-    songsList: []
+    songs: []
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const albumsList = [
     genres: ['pop', 'rock'],
     grade: 4.0,
     userReviews: [],
-    songsList: [9]
+    songs: [9]
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ const albumsList = [
     genres: ['pop', 'country'],
     grade: 4.3,
     userReviews: [],
-    songsList: [10]
+    songs: [10]
   }
 ];
 

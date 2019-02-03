@@ -18,7 +18,7 @@ const AlbumsListItem = ({ item: { item }, onPress }) => (
     activeOpacity={0.6}
     onPress={onPress}
   >
-    <Image 
+    <Image
       style={styles.image}
       source={{ uri: item.albumCover }}
       resizeMode='contain' />

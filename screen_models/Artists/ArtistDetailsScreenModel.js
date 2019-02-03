@@ -21,7 +21,7 @@ class ArtistDetailsScreenModel {
   @observable isLoading = false;
 
   /**
-   * Artist details (default value at the beggining).
+   * Artist details (default object at the beggining).
    */
   @observable artistDetails = new ArtistModel(0);
 

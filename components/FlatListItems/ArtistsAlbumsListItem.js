@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Image, View, Text } from 'react-native';
 import { pure } from 'recompose';
 
 /**
- * Artist's album list item component.
+ * Artist's albums list item component.
  * 
  * @param {object} item One list item 
  * @param {function} onPress Function called when item is pressed

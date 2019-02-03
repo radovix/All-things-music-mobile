@@ -62,7 +62,7 @@ class AlbumsListScreen extends React.Component {
     const { navigation } = this.props;
     const { item } = event;
 
-    navigation.navigate('AlbumsDetails', {
+    navigation.navigate('AlbumDetails', {
       id: item.id,
       title: item.name
     });
