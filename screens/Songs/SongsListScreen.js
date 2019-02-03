@@ -24,7 +24,7 @@ class SongsListScreen extends React.Component {
   /**
    * Creates an instance of SongsListScreen.
    *
-   * @param {Object} props Props
+   * @param {object} props Props
    * @memberof SongsListScreen
    */
   constructor(props) {

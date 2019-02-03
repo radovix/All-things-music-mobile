@@ -48,7 +48,7 @@ class AlbumModel {
   /**
    * Album's songs lists.
    */
-  songsList;
+  songs;
 
   /**
    * Creates an instance of AlbumModel.
@@ -61,10 +61,10 @@ class AlbumModel {
    * @param {Array<number>} [genres=[]] Music genres of that describe album
    * @param {number} [grade=1] Album's grade on 1 to 5 scale
    * @param {Array<UserReview>} [userReviews=[]] Album's reviews made by users
-   * @param {Array<number>} [songsList=[]] Album's songs lists
+   * @param {Array<number>} [songs=[]] Album's songs lists
    * @memberof AlbumModel
    */
-  constructor(id, artistId, name = '', albumCover = null, releaseDate = '', genres = [], grade = 1, userReviews = [], songsList = []) {
+  constructor(id, artistId, name = '', albumCover = null, releaseDate = '', genres = [], grade = 1, userReviews = [], songs = []) {
     this.id = id;
     this.artistsId = artistId;
     this.name = name;
@@ -73,7 +73,7 @@ class AlbumModel {
     this.genres = genres;
     this.grade = grade;
     this.userReviews = userReviews;
-    this.songsList = songsList;
+    this.songs = songs;
   }
 }
 

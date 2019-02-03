@@ -46,7 +46,7 @@ class ArtistModel {
    * @param {Array<sumber>} [albums=[]] Artist's albums
    * @memberof ArtistModel
    */
-  constructor(id, name = '', summary = '', genres = [], image = null, albums = []) {
+  constructor(id, name = '-', summary = '-', genres = [], image = null, albums = []) {
     this.id = id;
     this.name = name;
     this.summary = summary;

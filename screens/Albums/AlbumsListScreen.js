@@ -24,7 +24,7 @@ class AlbumsListScreen extends React.Component {
   /**
    * Creates an instance of AlbumsListScreen.
    *
-   * @param {Object} props Props
+   * @param {object} props Props
    * @memberof AlbumsListScreen
    */
   constructor(props) {

@@ -8,7 +8,7 @@ class ArtistsRepository {
   /**
    * Gets the artists list from server.
    *
-   * @param {Object} payload Payload data
+   * @param {object} payload Payload data
    * @returns artists list
    * @memberof ArtistsRepository
    */
@@ -19,11 +19,11 @@ class ArtistsRepository {
   /**
    * Gets the artist's details from server.
    *
-   * @param {Object} payload Payload data
+   * @param {object} payload Payload data
    * @returns artist's details
    * @memberof ArtistsRepository
    */
-  getArtistDetail(payload) {
+  getArtistDetails(payload) {
 
   }
 }
