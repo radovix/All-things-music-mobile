@@ -12,9 +12,22 @@ import { StyleSheet, View, Text } from 'react-native';
 @observer
 class ArtistDetailsScreen extends React.Component {
   /**
+   * Header configuration
+   *
+   * @static
+   * @memberof ArtistDetailsScreen
+   */
+  static navigationOptions = ({ navigation }) => ({
+    title: navigation.getParam('title'),
+    headerTitleStyle: {
+      fontWeight: 'normal'
+    }
+  });
+
+  /**
    * Creates an instance of ArtistDetailsScreen.
    *
-   * @param {Object} props Props
+   * @param {object} props Props
    * @memberof ArtistDetailsScreen
    */
   constructor(props) {
