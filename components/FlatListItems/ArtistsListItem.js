@@ -41,12 +41,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   image: {
-    flex: 5,
+    flex: 4,
     margin: 5,
     borderRadius: 10
   },
   info: {
-    flex: 5,
+    flex: 6,
     padding: 5,
     alignItems: 'center',
     justifyContent: 'center'

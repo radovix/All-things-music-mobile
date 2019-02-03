@@ -4,7 +4,7 @@ import { StyleSheet, FlatList } from 'react-native';
 
 import LoadingIndicator from '../../components/Loading/LoadingIndicator';
 import EmptyScreenPlaceholder from '../../components/Placeholders/EmptyScreenPlaceholder';
-import ArtistListItem from '../../components/FlatListItems/ArtistsListItem';
+import ArtistsListItem from '../../components/FlatListItems/ArtistsListItem';
 
 /**
  * Class represents the articles list screen.
@@ -93,7 +93,7 @@ class ArtistsListScreen extends React.Component {
         data={Array.from(artistsList)}
         initialNumToRender={6}
         renderItem={artist => (
-          <ArtistListItem 
+          <ArtistsListItem 
             item={artist} 
             onPress={() => this.onItemPress(artist)} />
         )}
