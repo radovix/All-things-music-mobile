@@ -1,3 +1,5 @@
+import ArtistModel from '../Artists/ArtistModel';
+
 /**
  * Class represents the album model. It keeps the data
  * about one album.
@@ -14,6 +16,11 @@ class AlbumModel {
    * Album's author's ID.
    */
   artistId;
+
+  /**
+   * Album's author.
+   */
+  artist;
 
   /**
    * Album's name.
@@ -55,6 +62,7 @@ class AlbumModel {
    *
    * @param {number} id Album's ID
    * @param {number} artistId Album's author's ID
+   * @param {ArtistModel} artist Album's author
    * @param {string} [name=''] Album's name
    * @param {string} [albumCover=null] Album's cover image
    * @param {string} [releaseDate=''] Album's release date
@@ -64,9 +72,10 @@ class AlbumModel {
    * @param {Array<number>} [songs=[]] Album's songs lists
    * @memberof AlbumModel
    */
-  constructor(id, artistId, name = '', albumCover = null, releaseDate = '', genres = [], grade = 1, userReviews = [], songs = []) {
+  constructor(id, artistId, artist = new ArtistModel(0), name = '-', albumCover = null, releaseDate = null, genres = [], grade = 1, userReviews = [], songs = []) {
     this.id = id;
     this.artistsId = artistId;
+    this.artist = artist;
     this.name = name;
     this.albumCover = albumCover;
     this.releaseDate = releaseDate;

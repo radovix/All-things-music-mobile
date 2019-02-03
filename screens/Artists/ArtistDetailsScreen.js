@@ -40,23 +40,6 @@ class ArtistDetailsScreen extends React.Component {
   }
 
   /**
-   * Handles the on press event for one albums list
-   * item.
-   *
-   * @param {object} event Event object containing pressed item
-   * @memberof ArtistDetailsScreen
-   */
-  onAlbumsItemPress(event) {
-    const { navigation } = this.props;  
-    const { item } = event;
-
-    navigation.navigate('AlbumDetails', {
-      id: item.id,
-      title: item.name
-    })
-  }
-
-  /**
    * Called immediately after a component is mounted. 
    * Starts the data loading.
    *
@@ -73,6 +56,23 @@ class ArtistDetailsScreen extends React.Component {
    * Artist details screen model.
    */
   artistDetailsScreenModel;
+
+  /**
+   * Handles the on press event for one albums list
+   * item.
+   *
+   * @param {object} event Event object containing pressed item
+   * @memberof ArtistDetailsScreen
+   */
+  onAlbumsItemPress(event) {
+    const { navigation } = this.props;  
+    const { item } = event;
+
+    navigation.navigate('AlbumDetails', {
+      id: item.id,
+      title: item.name
+    })
+  }
 
   /**
    * Renders the screen.

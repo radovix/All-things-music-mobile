@@ -1,4 +1,6 @@
+import ArtistsListMockData from '../../mocks/Artists/ArtistsListMockData';
 import AlbumsListMockData from '../../mocks/Albums/AlbumsListMockData';
+import UserReviewsListMockData from '../../mocks/Albums/UserReviewsListMockData';
 import SongsListMockData from '../../mocks/Songs/SongsListMockData';
 
 /**
@@ -16,8 +18,13 @@ class FakeAlbumsRepository {
    * @memberof FakeAlbumsRepository
    */
   getAlbumsList(payload) {
+    const albums = AlbumsListMockData.map(a => ({
+      ...a,
+      artist: ArtistsListMockData.filter(ar => ar.id === a.artistId)[0]
+    }));  
+
     return new Promise((resolve) => {
-      setTimeout(() => resolve(AlbumsListMockData), 3500);
+      setTimeout(() => resolve(albums), 3500);
     });
   }
 
@@ -29,10 +36,16 @@ class FakeAlbumsRepository {
    * @memberof FakeAlbumsRepository
    */
   getAlbumDetails(payload) {
-    const album = AlbumsListMockData.filter(a => a.id === payload.id)[0];
+    const album = { ...AlbumsListMockData.filter(a => a.id === payload.id)[0] };
+    const artist = ArtistsListMockData.filter(a => a.albums.includes(payload.id))[0];
     const songs = SongsListMockData.filter(s => album.songs.includes(s.id));
+    const userReviews = UserReviewsListMockData.filter(ur => ur.albumId === payload.id);
+
+    console.log(UserReviewsListMockData);
+    album.artist = artist || [];
     album.songs = songs;
-    
+    album.userReviews = userReviews;
+
     return new Promise((resolve) => {
       setTimeout(() => resolve(album), 3500);
     });

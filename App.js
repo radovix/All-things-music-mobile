@@ -79,6 +79,7 @@ class App extends React.Component {
           }
         }, 
         { 
+          initialRouteName: 'AlbumsStack',
           tabBarOptions: { 
             activeTintColor: colors.activeTabTintColor, 
             inactiveTintColor : colors.inactiveTabTintColor, 
