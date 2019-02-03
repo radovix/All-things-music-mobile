@@ -8,7 +8,7 @@ class AlbumsRepository {
   /**
    * Gets the albums list from server.
    *
-   * @param {Object} payload Payload data
+   * @param {object} payload Payload data
    * @returns albums list
    * @memberof AlbumsRepository
    */
@@ -19,7 +19,7 @@ class AlbumsRepository {
   /**
    * Gets the album's details from server.
    *
-   * @param {Object} payload Payload data
+   * @param {object} payload Payload data
    * @returns album's details
    * @memberof AlbumsRepository
    */

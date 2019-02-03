@@ -8,7 +8,7 @@ class SongsRepository {
   /**
    * Gets the songs list from server.
    *
-   * @param {Object} payload Payload data
+   * @param {object} payload Payload data
    * @returns songs list
    * @memberof SongsRepository
    */

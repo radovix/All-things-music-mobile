@@ -11,7 +11,7 @@ class FakeAlbumsRepository {
   /**
    * Gets the albums list from server.
    *
-   * @param {Object} payload Payload data
+   * @param {object} payload Payload data
    * @returns albums list
    * @memberof FakeAlbumsRepository
    */
@@ -24,7 +24,7 @@ class FakeAlbumsRepository {
   /**
    * Gets the album's details from server.
    *
-   * @param {Object} payload Payload data
+   * @param {object} payload Payload data
    * @returns album's details
    * @memberof FakeAlbumsRepository
    */
