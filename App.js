@@ -11,7 +11,7 @@ import AlbumsListScreen from './screens/Albums/AlbumsListScreen';
 import AlbumDetailsScreen from './screens/Albums/AlbumDetailsScreen';
 import SongsListScreen from './screens/Songs/SongsListScreen';
 
-import colors from './assets/colors';
+import colors from './constants/colors';
 
 /**
  * Class repersents the highest order component - App component.
