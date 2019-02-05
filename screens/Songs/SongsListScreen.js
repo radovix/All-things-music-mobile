@@ -1,6 +1,7 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, View, TextInput } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import LoadingIndicator from '../../components/Loading/LoadingIndicator';
 import EmptyScreenPlaceholder from '../../components/Placeholders/EmptyScreenPlaceholder';
@@ -71,19 +72,29 @@ class SongsListScreen extends React.Component {
     }
 
     return (
-      <FlatList 
-        style={styles.container}
-        contentContainerStyle={styles.contentContainerStyle}
-        data={Array.from(songsList)}
-        initialNumToRender={15}
-        renderItem={song => (
-          <SongsListItem 
-            item={song} 
-            onPress={() => {}} />
-        )}
-        keyExtractor={song => song.id.toString()}
-        ListEmptyComponent={EmptyScreenPlaceholder} 
-      />
+      <View>
+        <View style={styles.filter}>
+          <TextInput 
+            placeholder='Song name...'
+            maxLength={30}
+            onChangeText={e => console.log(e)}
+          />
+          <Icon name='arrow-down-drop-circle-outline' size={15} />
+        </View> 
+        <FlatList 
+          style={styles.list}
+          contentContainerStyle={styles.contentContainerStyle}
+          data={Array.from(songsList)}
+          initialNumToRender={15}
+          renderItem={song => (
+            <SongsListItem 
+              item={song} 
+              onPress={() => {}} />
+          )}
+          keyExtractor={song => song.id.toString()}
+          ListEmptyComponent={EmptyScreenPlaceholder} 
+        />
+      </View>
     );
   }
 }
@@ -92,7 +103,13 @@ class SongsListScreen extends React.Component {
  * Screen's styles object.
  */
 const styles = StyleSheet.create({
-  container: {
+  filter: { 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderBottomWidth: 0.3333, 
+    borderBottomColor: 'rgba(0, 0, 0, .3)'
+  },
+  list: {
     backgroundColor: '#eeeeee'
   },
   contentContainerStyle: {
