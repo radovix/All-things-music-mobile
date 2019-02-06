@@ -47,14 +47,20 @@ class Filter extends React.Component {
    * @memberof Filter
    */
   renderArrow() {
+    const { children } = this.props;
+
+    if (!children) {
+      return null;
+    }
+
     if (this.state.isOpened) {
       return ( 
-        <Icon name='arrow-drop-up' size={40} />
+        <Icon name='arrow-drop-up' color='white' size={40} />
       );
     }
 
     return ( 
-      <Icon name='arrow-drop-down' size={40} />
+      <Icon name='arrow-drop-down' color='white' size={40} />
     );
   }
 
@@ -108,23 +114,27 @@ class Filter extends React.Component {
    */
   render() {
     const { 
+      children,
       topElementPlaceholder,
       topElementValue,
       topElementOnChange,
       onApply
     } = this.props;
 
-    const topElementOnBlur = this.state.isOpened ? () => {} : onApply;
+    const topElementOnBlur = !children ? onApply : (this.state.isOpened ? () => {} : onApply);
 
     const topElement = (
-      <TextInput 
-        style={styles.topElement}
-        placeholder={topElementPlaceholder}
-        maxLength={30}
-        value={topElementValue}
-        onChangeText={topElementOnChange}
-        onBlur={topElementOnBlur}
-      />
+      <View style={styles.topElement}>
+        <TextInput 
+          style={styles.topElementInput}
+          placeholder={topElementPlaceholder}
+          placeholderTextColor='rgba(255, 255, 255, 0.5)'
+          maxLength={30}
+          value={topElementValue}
+          onChangeText={topElementOnChange}
+          onBlur={topElementOnBlur}
+        />
+      </View>
     );
 
     return (
@@ -159,11 +169,21 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: 10,
     borderBottomWidth: 0.3333, 
-    borderBottomColor: 'rgba(0, 0, 0, .3)'
+    borderBottomColor: 'rgba(0, 0, 0, .3)',
+    backgroundColor: '#B7521E'
   },
   topElement: {
     flex: 4,
-    fontSize: 16
+    justifyContent: 'center',
+    height: 50
+  },
+  topElementInput: {
+    height: 30,
+    fontSize: 16,
+    padding: 5,
+    borderRadius: 5,
+    backgroundColor: '#ef9f75',
+    color: '#555555'
   },
   arrowContainer: {
     flex: 1
@@ -183,8 +203,8 @@ const styles = StyleSheet.create({
     zIndex: 100,
     paddingTop: 10,
     paddingLeft: 10,
-    borderBottomWidth: 0.3333, 
-    borderBottomColor: 'rgba(0, 0, 0, .3)',
+    borderBottomWidth: 1, 
+    borderBottomColor: '#B7521E',
     backgroundColor: 'white'
   },
   buttonsSection: {

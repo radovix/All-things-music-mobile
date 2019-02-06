@@ -123,7 +123,7 @@ class AlbumsListScreen extends React.Component {
           </View>
         </Filter>
         <FlatList 
-          style={styles.container}
+          style={styles.list}
           contentContainerStyle={styles.contentContainerStyle}
           data={Array.from(albumsList)}
           initialNumToRender={6}
@@ -144,7 +144,7 @@ class AlbumsListScreen extends React.Component {
  * Screen's styles object.
  */
 const styles = StyleSheet.create({
-  container: {
+  list: {
     backgroundColor: '#eeeeee',
     marginBottom: 50
   },
