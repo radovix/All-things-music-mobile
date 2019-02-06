@@ -3,7 +3,7 @@ import axios from 'axios';
 /**
  * Base URL for sending the api requests.
  */
-const BASE_URL = '';
+const BASE_URL = 'http://36dfbba0.ngrok.io/api/';
 
 /**
  * Default headers for sending the api requests.
@@ -64,7 +64,7 @@ class ApiService {
    * @memberof ApiService
    */
   static async get(url, data, headers) {
-    return _request('GET', url, data, headers);
+    return this.this._request('GET', url, data, headers);
   }
 
   /**
@@ -78,7 +78,7 @@ class ApiService {
    * @memberof ApiService
    */
   static async post(url, data, headers) {
-    return _request('POST', url, data, headers);
+    return this._request('POST', url, data, headers);
   }
 
   /**
@@ -92,7 +92,7 @@ class ApiService {
    * @memberof ApiService
    */
   static async put(url, data, headers) {
-    return _request('PUT', url, data, headers);
+    return this._request('PUT', url, data, headers);
   }
 
   /**
@@ -106,7 +106,7 @@ class ApiService {
    * @memberof ApiService
    */
   static async delete(url, data, headers) {
-    return _request('DELETE', url, data, headers);
+    return this._request('DELETE', url, data, headers);
   }
 }
 
