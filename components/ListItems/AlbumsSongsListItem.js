@@ -19,7 +19,7 @@ const AlbumsSongsListItem = ({ item, onPress = () => {} }) => (
   >
     <Text style={styles.name}>{item.name}</Text>
     <Text style={styles.grade}>
-        {`${item.grade.toFixed(1)} / 5 `}    
+        {`${item.grade.toFixed(1)} / 5.0 `}    
         <Icon name='star' size={15} color='yellow' />
     </Text>
   </TouchableOpacity>

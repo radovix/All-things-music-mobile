@@ -91,7 +91,7 @@ class ArtistsListScreen extends React.Component {
     }
 
     return (
-      <View>
+      <View style={styles.container}>
         <Filter 
           topElementPlaceholder='Artist name...' 
           topElementValue={filterArtistName}
@@ -119,9 +119,11 @@ class ArtistsListScreen extends React.Component {
  * Screen's styles object.
  */
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   list: {
-    backgroundColor: '#eeeeee',
-    marginBottom: 50
+    backgroundColor: '#eeeeee'
   },
   contentContainerStyle: {
     flexGrow: 1

@@ -59,13 +59,13 @@ class AlbumsListScreenModel {
 
     try {
       const payload = {
-        albumName: this.filterAlbumName,
-        artistName: this.filterArtistName,
+        albumName: this.filterAlbumName || null,
+        artistName: this.filterArtistName || null,
         minGrade: this.filterGradesRange[0],
         maxGrade: this.filterGradesRange[1]
       };
 
-      const fetchedAlbumsList = await this.albumsRepository.getAlbumsList();
+      const fetchedAlbumsList = await this.albumsRepository.getAlbumsList(payload);
 
       this.albumsList.clear();
       this.albumsList.push(...fetchedAlbumsList);

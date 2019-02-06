@@ -22,7 +22,7 @@ const ArtistListItem = ({ item: { item }, onPress }) => (
       resizeMode='contain' />
     <View style={styles.info}>    
       <Text style={styles.name} numberOfLines={2}>{item.name}</Text>
-      <Text style={styles.genres}>{item.genres.join(', ')}</Text>
+      <Text style={styles.genres}>{item.genres.map(g => g.name).join(', ')}</Text>
     </View>
   </TouchableOpacity>
 );

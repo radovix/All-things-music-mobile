@@ -21,7 +21,7 @@ const ArtistsAlbumsListItem = ({ item: { item }, onPress }) => (
       source={{ uri: item.albumCover }} 
       resizeMode='contain' />
     <View style={styles.nameWrapper}>
-      <Text stye={styles.name}>{item.name}</Text>
+      <Text stye={styles.name} numberOfLines={2}>{item.name}</Text>
     </View>
   </TouchableOpacity>
 );
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
+    maxHeight: 100,
     marginBottom: 5,
     borderRadius: 10
   },

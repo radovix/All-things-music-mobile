@@ -25,6 +25,10 @@ class AlbumDetailsScreen extends React.Component {
    */
   static navigationOptions = ({ navigation }) => ({
     title: navigation.getParam('title'),
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: '#B7521E'
+    },
     headerTitleStyle: {
       fontWeight: 'normal'
     }
@@ -108,7 +112,7 @@ class AlbumDetailsScreen extends React.Component {
 
     const {
       albumCover,
-      artist,
+      artistName,
       grade,
       name,
       releaseDate
@@ -124,10 +128,10 @@ class AlbumDetailsScreen extends React.Component {
           <View style={styles.info}>    
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.text}>
-              {artist.name}, {releaseDate ? moment(releaseDate).year() + '.' : '-'}
+              {artistName}, {releaseDate ? moment(releaseDate).year() + '.' : '-'}
             </Text>
             <Text style={styles.grade}>
-              {`${grade.toFixed(1)} / 5 `}    
+              {`${grade.toFixed(1)} / 5.0 `}    
               <Icon name='star' size={15} color='yellow' />
             </Text>
           </View>
