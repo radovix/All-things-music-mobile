@@ -3,7 +3,14 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { pure } from 'recompose';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const SongsListItem = ({ item: { item }, onPress = () => {} }) => (
+/**
+ * Songs list item component.
+ * 
+ * @param {object} item One list item
+ * @param {funaction} onPress Function called when item is pressed
+ * @returns component's elements
+ */
+const SongsListItem = ({ item: { item }, onPress }) => (
   <TouchableOpacity 
     key={item.id}
     style={styles.container}
