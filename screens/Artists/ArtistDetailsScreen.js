@@ -94,7 +94,7 @@ class ArtistDetailsScreen extends React.Component {
 
     const {
       name,
-      summary,
+      biography,
       genres,
       image,
       albums
@@ -114,7 +114,7 @@ class ArtistDetailsScreen extends React.Component {
         </View>
         <View style={styles.body}>
           <Text style={styles.label}>About {name}</Text>
-          <Text style={styles.biography}>{summary}</Text>
+          <Text style={styles.biography}>{biography}</Text>
           <Text style={styles.label}>Albums</Text>
           <FlatList 
             style={styles.albums}

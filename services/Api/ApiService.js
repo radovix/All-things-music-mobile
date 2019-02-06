@@ -64,7 +64,7 @@ class ApiService {
    * @memberof ApiService
    */
   static async get(url, data, headers) {
-    return this.this._request('GET', url, data, headers);
+    return this._request('GET', url, data, headers);
   }
 
   /**
