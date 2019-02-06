@@ -26,7 +26,7 @@ class ArtistsMapper {
       artistDto.Biography,
       artistDto.Image,
       GenresMapper.mapDtosToGenres(artistDto.Genres),
-      AlbumsMapper.mapDtosToAlbums(artistDto.Albums)
+      AlbumsMapper.mapDtosToAlbums(artistDto.Albums || [])
     );
 
     return artist;

@@ -48,7 +48,11 @@ class ArtistsListScreenModel {
     this.isLoading = true;
 
     try {
-      const fetchedArtistsList = await this.artistsRepository.getArtistsList();
+      const payload = {
+        keyword: this.filterArtistName || null
+      };
+
+      const fetchedArtistsList = await this.artistsRepository.getArtistsList(payload);
 
       this.artistsList.clear();
       this.artistsList.push(...fetchedArtistsList);

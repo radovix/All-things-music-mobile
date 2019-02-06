@@ -59,8 +59,8 @@ class SongsListScreenModel {
 
     try {
       const payload = {
-        songName: this.filterSongName,
-        artistName: this.filterArtistName,
+        songName: this.filterSongName || null,
+        artistName: this.filterArtistName || null,
         minGrade: this.filterGradesRange[0],
         maxGrade: this.filterGradesRange[1]
       };

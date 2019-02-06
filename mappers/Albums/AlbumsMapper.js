@@ -24,12 +24,13 @@ class AlbumsMapper {
     const album = new AlbumModel(
       albumDto.Id,
       albumDto.ArtistName,
+      albumDto.Name,
       albumDto.AlbumCover,
       albumDto.ReleaseDate,
       albumDto.Grade,
-      GenresMapper.mapDtosToGenres(albumDto.Genres),
-      UserReviewsMapper.mapDtosToUserReviews(albumDto.UserReviews),
-      SongsMapper.mapDtosToSongs(albumDto.Songs)
+      GenresMapper.mapDtosToGenres(albumDto.Genres || []),
+      UserReviewsMapper.mapDtosToUserReviews(albumDto.UserReviews || []),
+      SongsMapper.mapDtosToSongs(albumDto.Songs || [])
     );
 
     return album;

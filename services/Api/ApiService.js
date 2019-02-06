@@ -3,7 +3,7 @@ import axios from 'axios';
 /**
  * Base URL for sending the api requests.
  */
-const BASE_URL = 'http://36dfbba0.ngrok.io/api/';
+const BASE_URL = 'http://cf1b8e84.ngrok.io/api/';
 
 /**
  * Default headers for sending the api requests.

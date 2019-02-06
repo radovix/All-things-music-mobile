@@ -1,4 +1,4 @@
-import GenreModel from '../../models/Genres';
+import GenreModel from '../../models/Genres/GenreModel';
 
 /**
  * Class represents the genres mapper. It provides methods

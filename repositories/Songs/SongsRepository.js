@@ -1,5 +1,7 @@
 import ApiService from '../../services/Api/ApiService';
 
+import SongsMapper from '../../mappers/Songs/SongsMapper';
+
 /**
  * Class represents the songs repository. It is used
  * for fetching the songs related data from the server.
@@ -15,15 +17,10 @@ class SongsRepository {
    * @memberof SongsRepository
    */
   async getSongsList(payload) {
-    try {
-      const response = await ApiService.get('songs');
+    const response = await ApiService.get('songs', payload);
 
-      console.log(response);
-
-      return response.data;
-    } catch (e) {
-      console.error(e);
-    }
+    console.log(payload);
+    return SongsMapper.mapDtosToSongs(response.data);
   }
 }
 

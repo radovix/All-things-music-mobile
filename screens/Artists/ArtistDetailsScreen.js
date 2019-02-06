@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { StyleSheet, View, Image, Text, FlatList } from 'react-native';
+import { StyleSheet, ScrollView, View, Image, Text, FlatList } from 'react-native';
 
 import LoadingIndicator from '../../components/Loading/LoadingIndicator';
 import ArtistsAlbumsListItem from '../../components/FlatListItems/ArtistsAlbumsListItem';
@@ -22,6 +22,10 @@ class ArtistDetailsScreen extends React.Component {
    */
   static navigationOptions = ({ navigation }) => ({
     title: navigation.getParam('title'),
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: '#B7521E'
+    },
     headerTitleStyle: {
       fontWeight: 'normal'
     }
@@ -101,7 +105,7 @@ class ArtistDetailsScreen extends React.Component {
     } = artistDetails;
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.header}>
           <Image 
             style={styles.image}
@@ -109,7 +113,7 @@ class ArtistDetailsScreen extends React.Component {
             resizeMode='contain' />
           <View style={styles.info}>    
             <Text style={styles.name} numberOfLines={2}>{name}</Text>
-            <Text style={styles.genres}>{genres.join(', ')}</Text>
+            <Text style={styles.genres}>{genres.map(g => g.name).join(', ')}</Text>
           </View>
         </View>
         <View style={styles.body}>
@@ -129,8 +133,8 @@ class ArtistDetailsScreen extends React.Component {
             keyExtractor={album => album.id.toString()}
           />
         </View>
-      </View>
-    )
+      </ScrollView>
+    );
   }
 }
 
@@ -140,13 +144,11 @@ class ArtistDetailsScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    backgroundColor: '#fff'
   },
   header: {
     flexDirection: 'row',
-    height: 150,
+    height: 120,
     margin: 5,
     marginTop: 3.5,
     marginBottom: 3.5,
@@ -193,7 +195,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   albums: {
-    flex: 1
+    height: 150
   }
 });
 

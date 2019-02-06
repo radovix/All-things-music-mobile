@@ -19,9 +19,9 @@ class SongsMapper {
   static mapDtoToSong(songDto) {
     const song = new SongModel(
       songDto.Id,
+      songDto.ArtistName,
       songDto.Name,
-      songDto.Grade,
-      songDto.ArtistName
+      songDto.Grade
     );
 
     return song;

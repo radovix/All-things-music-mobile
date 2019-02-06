@@ -1,3 +1,7 @@
+import ApiService from '../../services/Api/ApiService';
+
+import AlbumsMapper from '../../mappers/Albums/AlbumsMapper';
+
 /**
  * Class represents the albums repository. It is used 
  * for fetching the albums related data from server.
@@ -12,8 +16,10 @@ class AlbumsRepository {
    * @returns albums list
    * @memberof AlbumsRepository
    */
-  getAlbumsList(payload) {
+  async getAlbumsList(payload) {
+    const response = await ApiService.get('albums', payload);
 
+    return AlbumsMapper.mapDtosToAlbums(response.data);
   }
 
   /**
@@ -23,8 +29,10 @@ class AlbumsRepository {
    * @returns album's details
    * @memberof AlbumsRepository
    */
-  getAlbumDetails(payload) {
+  async getAlbumDetails(payload) {
+    const response = await ApiService.get(`albums/${payload.id}`);
 
+    return AlbumsMapper.mapDtoToAlbum(response.data);
   }
 }
 
