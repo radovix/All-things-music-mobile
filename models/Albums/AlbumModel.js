@@ -13,14 +13,9 @@ class AlbumModel {
   id;
 
   /**
-   * Album's author's ID.
+   * Album author's name.
    */
-  artistId;
-
-  /**
-   * Album's author.
-   */
-  artist;
+  artistName;
 
   /**
    * Album's name.
@@ -38,14 +33,14 @@ class AlbumModel {
   releaseDate;
 
   /**
-   * Music genres of that describe album.
-   */
-  genres;
-
-  /**
    * Album's grade on 1 to 5 scale.
    */
   grade;
+
+  /**
+   * Music genres of that describe album.
+   */
+  genres;
 
   /** 
    * Album's reviews made by users.  
@@ -61,26 +56,24 @@ class AlbumModel {
    * Creates an instance of AlbumModel.
    *
    * @param {number} id Album's ID
-   * @param {number} artistId Album's author's ID
-   * @param {ArtistModel} artist Album's author
+   * @param {string} artistName Album author's name
    * @param {string} [name=''] Album's name
    * @param {string} [albumCover=null] Album's cover image
    * @param {string} [releaseDate=''] Album's release date
-   * @param {Array<number>} [genres=[]] Music genres of that describe album
    * @param {number} [grade=1] Album's grade on 1 to 5 scale
+   * @param {Array<number>} [genres=[]] Music genres of that describe album
    * @param {Array<UserReview>} [userReviews=[]] Album's reviews made by users
    * @param {Array<number>} [songs=[]] Album's songs lists
    * @memberof AlbumModel
    */
-  constructor(id, artistId, artist = new ArtistModel(0), name = '-', albumCover = null, releaseDate = null, genres = [], grade = 1, userReviews = [], songs = []) {
+  constructor(id, artistName = '-', name = '-', albumCover = null, releaseDate = null, grade = 1, genres = [], userReviews = [], songs = []) {
     this.id = id;
-    this.artistsId = artistId;
-    this.artist = artist;
+    this.artistName = artistName;
     this.name = name;
     this.albumCover = albumCover;
     this.releaseDate = releaseDate;
-    this.genres = genres;
     this.grade = grade;
+    this.genres = genres;
     this.userReviews = userReviews;
     this.songs = songs;
   }

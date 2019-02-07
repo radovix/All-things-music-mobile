@@ -1,4 +1,4 @@
-import { observable } from 'mobx';
+import { action, observable } from 'mobx';
 
 /**
  * Class represents the artists list screen model.
@@ -24,6 +24,11 @@ class ArtistsListScreenModel {
   @observable artistsList = [];
 
   /**
+   * Artists name keyword from filter.
+   */
+  @observable filterArtistName = '';
+
+  /**
    * Creates an instance of ArtistsListScreenModel.
    *
    * @param {ArtistsRepository} artistsRepository Artists repository instance
@@ -38,11 +43,16 @@ class ArtistsListScreenModel {
    *
    * @memberof ArtistsListScreenModel
    */
+  @action.bound
   async loadArtistsList() {
     this.isLoading = true;
 
     try {
-      const fetchedArtistsList = await this.artistsRepository.getArtistsList();
+      const payload = {
+        keyword: this.filterArtistName || null
+      };
+
+      const fetchedArtistsList = await this.artistsRepository.getArtistsList(payload);
 
       this.artistsList.clear();
       this.artistsList.push(...fetchedArtistsList);
@@ -51,6 +61,18 @@ class ArtistsListScreenModel {
     } finally {
       this.isLoading = false;
     }
+  }
+
+  /**
+   * Handles the changes of text inputs in filter. 
+   *
+   * @param {string} name Field's name
+   * @param {string} value Field's value
+   * @memberof ArtistsListScreenModel
+   */
+  @action.bound
+  onFilterTextInputChange(name, value) {
+    this[name] = value;
   }
 }
 

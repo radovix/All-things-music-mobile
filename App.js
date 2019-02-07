@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'mobx-react';
+import { StatusBar } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -11,7 +12,7 @@ import AlbumsListScreen from './screens/Albums/AlbumsListScreen';
 import AlbumDetailsScreen from './screens/Albums/AlbumDetailsScreen';
 import SongsListScreen from './screens/Songs/SongsListScreen';
 
-import colors from './assets/colors';
+import colors from './constants/colors';
 
 /**
  * Class repersents the highest order component - App component.
@@ -21,6 +22,16 @@ import colors from './assets/colors';
  * @extends {React.Component}
  */
 class App extends React.Component {
+  /**
+   * Called immediately after a component is mounted. 
+   * Starts the data loading.
+   *
+   * @memberof App
+   */
+  componentDidMount() {
+    StatusBar.setBackgroundColor(colors.activeTabTintColor);
+  }
+
   /**
    * Renders the app.
    *

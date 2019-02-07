@@ -10,7 +10,8 @@
     },
     "production": {
       "plugins": [
-        "transform-remove-console"
+        "transform-remove-console",
+        ["@babel/plugin-proposal-decorators", { "legacy": true }]
       ]
     }
   }

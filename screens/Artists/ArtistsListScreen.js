@@ -1,9 +1,10 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, View } from 'react-native';
 
 import LoadingIndicator from '../../components/Loading/LoadingIndicator';
 import EmptyScreenPlaceholder from '../../components/Placeholders/EmptyScreenPlaceholder';
+import Filter from '../../containers/Filters/Filter';
 import ArtistsListItem from '../../components/FlatListItems/ArtistsListItem';
 
 /**
@@ -77,7 +78,10 @@ class ArtistsListScreen extends React.Component {
   render() {
     const {
       isLoading,
-      artistsList
+      artistsList,
+      filterArtistName,
+      onFilterTextInputChange,
+      loadArtistsList
     } = this.artistsListScreenModel
 
     if (isLoading) {
@@ -87,20 +91,27 @@ class ArtistsListScreen extends React.Component {
     }
 
     return (
-      <FlatList 
-        style={styles.container}
-        contentContainerStyle={styles.contentContainerStyle}
-        data={Array.from(artistsList)}
-        initialNumToRender={6}
-        renderItem={artist => (
-          <ArtistsListItem 
-            item={artist} 
-            onPress={() => this.onItemPress(artist)} />
-        )}
-        keyExtractor={artist => artist.id.toString()}
-        ListEmptyComponent={EmptyScreenPlaceholder}  
-      />
-    )
+      <View style={styles.container}>
+        <Filter 
+          topElementPlaceholder='Artist name...' 
+          topElementValue={filterArtistName}
+          topElementOnChange={value => onFilterTextInputChange('filterArtistName', value)}
+          onApply={loadArtistsList} />
+        <FlatList 
+          style={styles.list}
+          contentContainerStyle={styles.contentContainerStyle}
+          data={Array.from(artistsList)}
+          initialNumToRender={6}
+          renderItem={artist => (
+            <ArtistsListItem 
+              item={artist} 
+              onPress={() => this.onItemPress(artist)} />
+          )}
+          keyExtractor={artist => artist.id.toString()}
+          ListEmptyComponent={EmptyScreenPlaceholder}  
+        />
+      </View>
+    );
   }
 }
 
@@ -109,6 +120,9 @@ class ArtistsListScreen extends React.Component {
  */
 const styles = StyleSheet.create({
   container: {
+    flex: 1
+  },
+  list: {
     backgroundColor: '#eeeeee'
   },
   contentContainerStyle: {

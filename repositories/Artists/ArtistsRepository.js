@@ -1,3 +1,7 @@
+import ApiService from '../../services/Api/ApiService';
+
+import ArtistsMapper from '../../mappers/Artists/ArtistsMapper';
+
 /**
  * Class represents the artists repository. It is used 
  * for fetching the artists related data from server. 
@@ -12,8 +16,10 @@ class ArtistsRepository {
    * @returns artists list
    * @memberof ArtistsRepository
    */
-  getArtistsList(payload) {
+  async getArtistsList(payload) {
+    const response = await ApiService.get('artists', payload);
 
+    return ArtistsMapper.mapDtosToArtists(response.data);
   }
 
   /**
@@ -23,8 +29,10 @@ class ArtistsRepository {
    * @returns artist's details
    * @memberof ArtistsRepository
    */
-  getArtistDetails(payload) {
+  async getArtistDetails(payload) {
+    const response = await ApiService.get(`artists/${payload.id}`);
 
+    return ArtistsMapper.mapDtoToArtist(response.data);
   }
 }
 

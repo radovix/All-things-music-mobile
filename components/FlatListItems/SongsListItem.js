@@ -3,18 +3,25 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { pure } from 'recompose';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const SongsListItem = ({ item: { item }, onPress = () => {} }) => (
+/**
+ * Songs list item component.
+ * 
+ * @param {object} item One list item
+ * @param {funaction} onPress Function called when item is pressed
+ * @returns component's elements
+ */
+const SongsListItem = ({ item: { item }, onPress }) => (
   <TouchableOpacity 
     key={item.id}
     style={styles.container}
     activeOpacity={0.6}
     onPress={onPress}
   >
-    <Text style={styles.text}>
+    <Text style={styles.text} numberOfLines={1} ellipsizeMode="tail">
       {item.artistName} - {item.name}
     </Text>
     <Text style={styles.grade}>
-      {`${item.grade.toFixed(1)} / 5 `}    
+      {`${item.grade.toFixed(1)} / 5.0 `}    
       <Icon name='star' size={15} color='yellow' />
     </Text>
   </TouchableOpacity>
@@ -38,8 +45,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   text: {
+    width: 240,
     fontSize: 15,
-    textAlign: 'center'
   },
   grade: {
     fontSize: 15,

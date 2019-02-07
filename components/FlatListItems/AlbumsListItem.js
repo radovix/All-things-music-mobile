@@ -25,10 +25,10 @@ const AlbumsListItem = ({ item: { item }, onPress }) => (
     <View style={styles.info}>    
       <Text style={styles.name}>{item.name}</Text>
       <Text style={styles.text}>
-        {item.artist.name}, {item.releaseDate ? moment(item.releaseDate).year() + '.' : '-'}
+        {item.artistName}, {item.releaseDate ? moment(item.releaseDate).year() + '.' : '-'}
       </Text>
       <Text style={styles.grade}>
-        {`${item.grade.toFixed(1)} / 5 `}    
+        {`${item.grade.toFixed(1)} / 5.0 `}    
         <Icon name='star' size={15} color='yellow' />
       </Text>
     </View>

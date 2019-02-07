@@ -1,9 +1,11 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, View, TextInput, Text } from 'react-native';
 
 import LoadingIndicator from '../../components/Loading/LoadingIndicator';
 import EmptyScreenPlaceholder from '../../components/Placeholders/EmptyScreenPlaceholder';
+import Filter from '../../containers/Filters/Filter';
+import RangeSlider from '../../components/RangeSliders/GradesRangeSlider';
 import SongsListItem from '../../components/FlatListItems/SongsListItem';
 
 /**
@@ -61,29 +63,63 @@ class SongsListScreen extends React.Component {
   render() {
     const {
       isLoading,
-      songsList 
+      songsList,
+      filterSongName,
+      filterArtistName,
+      filterGradesRange,
+      onFilterTextInputChange,
+      onFilterGradesRangeChange,
+      resetFilter,
+      loadSongsList 
     } = this.songsListScreenModel;
 
     if (isLoading) {
       return (
         <LoadingIndicator />
-      )
+      );
     }
 
     return (
-      <FlatList 
-        style={styles.container}
-        contentContainerStyle={styles.contentContainerStyle}
-        data={Array.from(songsList)}
-        initialNumToRender={15}
-        renderItem={song => (
-          <SongsListItem 
-            item={song} 
-            onPress={() => {}} />
-        )}
-        keyExtractor={song => song.id.toString()}
-        ListEmptyComponent={EmptyScreenPlaceholder} 
-      />
+      <View style={styles.container}>
+        <Filter 
+          topElementPlaceholder='Song name...' 
+          topElementValue={filterSongName}
+          topElementOnChange={value => onFilterTextInputChange('filterSongName', value)}
+          onClear={resetFilter}
+          onApply={loadSongsList}
+        >
+          <View>
+            <Text style={styles.filterFieldLabel}>Artist</Text> 
+            <TextInput 
+              style={styles.filterField}
+              placeholder='Artist name...'
+              maxLength={40}
+              value={filterArtistName}
+              onChangeText={value => onFilterTextInputChange('filterArtistName', value)}
+            />
+          </View>
+          <View> 
+            <Text style={styles.filterFieldLabel}>Grade</Text>
+            <RangeSlider 
+              gradesRange={filterGradesRange}
+              onGradesRangeChange={onFilterGradesRangeChange}
+            />
+          </View>
+        </Filter>
+        <FlatList 
+          style={styles.list}
+          contentContainerStyle={styles.contentContainerStyle}
+          data={Array.from(songsList)}
+          initialNumToRender={15}
+          renderItem={song => (
+            <SongsListItem 
+              item={song} 
+              onPress={() => {}} />
+          )}
+          keyExtractor={song => song.id.toString()}
+          ListEmptyComponent={EmptyScreenPlaceholder} 
+        />
+      </View> 
     );
   }
 }
@@ -93,10 +129,20 @@ class SongsListScreen extends React.Component {
  */
 const styles = StyleSheet.create({
   container: {
+    flex: 1
+  },
+  list: {
     backgroundColor: '#eeeeee'
   },
   contentContainerStyle: {
     flexGrow: 1
+  },
+  filterField: {
+    fontSize: 16
+  },
+  filterFieldLabel: {
+    paddingLeft: 5,
+    fontSize: 13
   }
 });
 
